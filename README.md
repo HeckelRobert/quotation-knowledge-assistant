@@ -1,16 +1,22 @@
 # Contract manufacturing
 
-**Find similar past projects in seconds** — and reuse drawings, manufacturing steps, and historical job knowledge when preparing a new contract manufacturing job.
+**Built for engineers** who prepare *Lohnfertigung* (contract manufacturing) from customer drawings — find similar past projects in seconds and reuse drawings, manufacturing steps, and historical job knowledge instead of starting from zero.
 
 **The question it answers:** *Have we manufactured something like this before?*
 
 ---
 
+## The problem
+
+Preparing a *Lohnfertigung* is repetitive and time-consuming. For each new inquiry an engineer must locate comparable past jobs, read drawings, work out manufacturing steps, and draft the technical content — often by digging through project folders and relying on memory. That work adds up across many inquiries and slows down quotation and technical review.
+
+Much of this can be automated: the app matches new inquiries to your catalog and drafts manufacturing steps and *Lohnfertigung* content from the best historical match. For AI-assisted matching and text generation, a **local model** (e.g. via [Ollama](https://ollama.com)) keeps customer data, drawings, and inquiry details **on your machine** — no cloud upload required. Hosted providers remain optional if you explicitly configure them.
+
 ## What is it?
 
-Contract manufacturing is a Windows desktop application that connects a new customer inquiry to your historical project catalog. You enter material, quantity, surface treatment, and a short description (or pull details from an email inbox), and the app searches past jobs for the best matches.
+Contract manufacturing is a Windows desktop application for engineers. It connects a new customer inquiry to your historical project catalog: you enter material, quantity, surface treatment, and a short description (or pull details from an email inbox), and the app searches past jobs for the best matches.
 
-For each match you get a similarity score, plain-language reasons, and direct access to project folders and drawing PDFs. A contract manufacturing workspace then suggests manufacturing steps and a draft you can copy into your existing process.
+For each match you get a similarity score, plain-language reasons, and direct access to project folders and drawing PDFs. The contract manufacturing workspace then suggests manufacturing steps and a *Lohnfertigung* draft you can review, edit, and copy into your existing process — cutting the manual rework that usually takes the most time.
 
 Bundled sample data is included so you can explore the full workflow **without configuring anything** on first launch.
 
@@ -18,20 +24,24 @@ Bundled sample data is included so you can explore the full workflow **without c
 
 | Challenge | How the app helps |
 |-----------|-------------------|
-| Every new inquiry starts from scratch | Surfaces the three most similar past projects immediately |
+| *Lohnfertigung* prep takes too long | Reuses manufacturing steps and drafts from comparable past jobs |
+| Every new inquiry starts from scratch | Surfaces the three most similar projects immediately |
 | Knowledge lives in folders and people's heads | Makes historical jobs searchable and explains *why* a match fits |
-| Quotation prep takes too long | Reuses manufacturing steps and drafts from comparable jobs |
 | Drawings are hard to find | Opens the right project folder and drawing PDF in one click |
+| Sensitive data must stay in-house | Local AI (Ollama) runs on your PC; inquiry and document text never leave the machine unless you choose a hosted provider |
 
-The goal is faster, more consistent technical review — especially when your team has years of projects but no structured way to reuse them.
+The goal is faster, more consistent technical review and shorter paths from inquiry to a usable *Lohnfertigung* draft.
 
 ## Who is it for?
 
-- **Engineers** who perform technical reviews and prepare contract manufacturing jobs
-- **Sales and contract manufacturing staff** who need quick orientation on whether you have done similar work before
-- **Engineering management** evaluating whether structured knowledge reuse is worth investing in
+**Primary audience: engineers** who perform technical reviews and prepare *Lohnfertigung* documentation from customer drawings.
 
-If your company manufactures to customer drawings and repeatedly asks *"have we done this before?"*, this prototype is built to show what that workflow could look like.
+Also relevant for:
+
+- **Sales and contract manufacturing staff** who need quick orientation on whether you have done similar work before
+- **Engineering management** evaluating whether structured knowledge reuse and local AI are worth investing in
+
+If your team repeatedly asks *"have we done this before?"* and spends hours rebuilding manufacturing steps for each new job, this prototype shows what an engineer-focused workflow could look like.
 
 ---
 
@@ -69,7 +79,7 @@ Uninstall later via **Windows Settings → Apps** if needed.
 1. Tab **Inquiry**: Material *Stainless Steel 1.4301*, surface *Powder Coated*, quantity *20*, description *Stainless enclosure*.
 2. Click **Analyze Inquiry**.
 3. Tab **Catalog**: best match **PRJ-2019-0142** — try another match, review the drawing preview, then **Open project folder** or **Open drawing**.
-4. Tab **Contract manufacturing**: review the draft → copy content to the clipboard.
+4. Tab **Contract manufacturing**: review the suggested *Lohnfertigung* draft → copy content to the clipboard.
 
 Default UI language is German; switch to English under **Settings**.
 
@@ -81,7 +91,7 @@ Default UI language is German; switch to English under **Settings**.
 | Analyze | The app searches your historical project catalog |
 | Review top 3 matches | Similarity score and plain-language reasons |
 | Open documents | Project folder and drawing PDF from a past job |
-| Contract manufacturing workspace | Suggested manufacturing steps and draft — copy into your process |
+| Contract manufacturing workspace | Suggested manufacturing steps and *Lohnfertigung* draft — review, edit, copy into your process |
 
 ---
 
