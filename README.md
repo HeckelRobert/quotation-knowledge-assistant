@@ -4,6 +4,32 @@ Prototype desktop application for contract manufacturing: **find similar past pr
 
 **Core question the demo answers:** *Have we manufactured something like this before?*
 
+## Screenshots
+
+### Inbox
+
+Retrieve customer inquiries, categorize messages, and send automated replies for straightforward requests.
+
+![Inbox — retrieve and respond to customer inquiries](docs/images/inbox.png)
+
+### Inquiry
+
+Review inquiry details pre-filled from email, attach drawings, and start analysis.
+
+![Inquiry — review and analyze customer request](docs/images/inquiry.png)
+
+### Catalog
+
+Browse similar past projects with similarity scores, match reasoning, and drawing preview.
+
+![Catalog — review matches from historical projects](docs/images/catalog.png)
+
+### Contract manufacturing workspace
+
+Review suggested manufacturing steps and the contract manufacturing draft after analysis.
+
+![Contract manufacturing workspace](docs/images/contract-manufacturing-workspace.png)
+
 ## What you get in the workshop
 
 | Step | What happens |

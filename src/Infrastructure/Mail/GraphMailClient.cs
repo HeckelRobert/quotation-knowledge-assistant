@@ -16,8 +16,8 @@ public sealed class GraphMailClient(
 {
     private static readonly string[] Scopes =
     [
-        "Mail.Read",
-        "Mail.Send",
+        "Mail.Read.Shared",
+        "Mail.Send.Shared",
         "User.Read",
         "offline_access",
     ];

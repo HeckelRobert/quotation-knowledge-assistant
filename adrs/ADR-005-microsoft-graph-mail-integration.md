@@ -22,8 +22,8 @@ Integrate **Microsoft 365 mail** via **Microsoft Graph** using **MSAL** (`Micros
 
 | Permission | Purpose |
 |------------|---------|
-| `Mail.Read` | Fetch inbox messages and attachments |
-| `Mail.Send` | Send auto-replies and contract manufacturing replies |
+| `Mail.Read.Shared` | Fetch inbox messages and attachments (own mailbox and shared/delegated mailboxes) |
+| `Mail.Send.Shared` | Send auto-replies and contract manufacturing replies from shared or delegated mailboxes |
 | `offline_access` | Refresh tokens without repeated interactive login |
 | `User.Read` | Identify signed-in account |
 
