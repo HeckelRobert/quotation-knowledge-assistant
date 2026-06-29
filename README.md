@@ -67,8 +67,8 @@ No commitment required — just tell us briefly what you manufacture and we will
 
 | | |
 |---|---|
-| **Installer (recommended)** | [Download latest MSI](https://github.com/HeckelRobert/quotation-knowledge-assistant/releases/latest/download/Contract%20manufacturing%20Setup.msi) |
-| **All versions** | [GitHub Releases](https://github.com/HeckelRobert/quotation-knowledge-assistant/releases) |
+| **Installer (recommended)** | [Download latest MSI](https://github.com/HeckelRobert/contract-manufacturing-assistant/releases/latest/download/Contract-manufacturing-Setup.msi) |
+| **All versions** | [GitHub Releases](https://github.com/HeckelRobert/contract-manufacturing-assistant/releases) |
 | **Detailed instructions** | [User guide](docs/user-guide.md) |
 
 ### Requirements
@@ -78,7 +78,7 @@ No commitment required — just tell us briefly what you manufacture and we will
 
 ### Install and run
 
-1. Download **Contract manufacturing Setup.msi** using the link above.
+1. Download **Contract-manufacturing-Setup.msi** using the link above.
 2. Double-click the installer and complete the wizard (see the [user guide](docs/user-guide.md) if Windows shows a security warning).
 3. Start **Contract manufacturing** from the desktop shortcut or the Windows Start menu.
 
@@ -155,7 +155,7 @@ Prerequisites: Windows 10/11, [.NET 10 SDK](https://dotnet.microsoft.com/downloa
 .\scripts\publish-installer.ps1
 ```
 
-Output: `publish/installer/Contract manufacturing Setup.msi`
+Output: `publish/installer/Contract-manufacturing-Setup.msi`
 
 Demo PDFs for the flagship sample project are generated automatically during that script. To regenerate them only:
 
@@ -169,18 +169,18 @@ Demo PDFs for the flagship sample project are generated automatically during tha
 dotnet build installer/QuotationAccelerator.Installer.wixproj -c Release
 ```
 
-MSI path: `installer/bin/Release/Contract manufacturing Setup.msi`
+MSI path: `installer/bin/Release/Contract-manufacturing-Setup.msi`
 
 ### Publish a GitHub release
 
 Tag a version to build the MSI and publish it to GitHub Releases automatically:
 
 ```powershell
-git tag v0.1.0
-git push origin v0.1.0
+git tag v0.1.2
+git push origin v0.1.2
 ```
 
-The release workflow uploads **Contract manufacturing Setup.msi** as a download asset. End users get it from [Releases](https://github.com/HeckelRobert/quotation-knowledge-assistant/releases/latest).
+The release workflow uploads **Contract-manufacturing-Setup.msi** as a download asset. End users get it from [Releases](https://github.com/HeckelRobert/contract-manufacturing-assistant/releases/latest).
 
 ## Solution structure
 

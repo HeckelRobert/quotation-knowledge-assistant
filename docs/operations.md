@@ -18,10 +18,10 @@ There is no cloud hosting, staging URL, or Azure infrastructure for this pilot.
 
 ### Distribution format
 
-Primary deliverable: **MSI installer** published via [GitHub Releases](https://github.com/HeckelRobert/quotation-knowledge-assistant/releases).
+Primary deliverable: **MSI installer** published via [GitHub Releases](https://github.com/HeckelRobert/contract-manufacturing-assistant/releases).
 
 ```text
-Contract manufacturing Setup.msi
+Contract-manufacturing-Setup.msi
 └── Installs to Program Files:
     ├── Contract manufacturing.exe
     ├── sample-data/
@@ -44,7 +44,7 @@ End users download the MSI from the README or Releases page. A portable ZIP buil
 
 ### Deployment steps
 
-1. Download **Contract manufacturing Setup.msi** from [GitHub Releases](https://github.com/HeckelRobert/quotation-knowledge-assistant/releases/latest) (see [user guide](user-guide.md) for non-technical steps).
+1. Download **Contract-manufacturing-Setup.msi** from [GitHub Releases](https://github.com/HeckelRobert/contract-manufacturing-assistant/releases/latest) (see [user guide](user-guide.md) for non-technical steps).
 2. Run the installer and complete the wizard (requires administrator rights).
 3. Start **Contract manufacturing** from the Start menu or desktop shortcut.
 4. On first launch, bundled `sample-data/` is used automatically if no project root is configured.
@@ -67,8 +67,8 @@ End users download the MSI from the README or Releases page. A portable ZIP buil
 Push a version tag to trigger the release workflow:
 
 ```powershell
-git tag v0.1.0
-git push origin v0.1.0
+git tag v0.1.2
+git push origin v0.1.2
 ```
 
 The workflow runs tests, builds the MSI, and publishes it to GitHub Releases. See `.github/workflows/release.yml`.

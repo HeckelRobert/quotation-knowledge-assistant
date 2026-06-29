@@ -6,6 +6,7 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
+$InstallerFileName = "Contract-manufacturing-Setup.msi"
 $repoRoot = Split-Path -Parent $PSScriptRoot
 
 Push-Location $repoRoot
@@ -41,12 +42,12 @@ try {
     }
     & dotnet @buildArgs
 
-    $msiSource = Join-Path $repoRoot "installer\bin/Release\Contract manufacturing Setup.msi"
+    $msiSource = Join-Path $repoRoot "installer\bin/Release\$InstallerFileName"
     if (-not (Test-Path $msiSource)) {
         throw "Installer build did not produce '$msiSource'."
     }
 
-    $msiTarget = Join-Path $outputPath "Contract manufacturing Setup.msi"
+    $msiTarget = Join-Path $outputPath $InstallerFileName
     Copy-Item -Path $msiSource -Destination $msiTarget -Force
 
     Write-Host ""

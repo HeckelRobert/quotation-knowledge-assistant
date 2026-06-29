@@ -43,6 +43,15 @@ jobs:
         run: |
           .\scripts\publish-installer.ps1 -ProductVersion "${{ steps.version.outputs.product_version }}"
 
+      - name: Verify MSI artifact
+        shell: pwsh
+        run: |
+          $msi = "publish/installer/Contract-manufacturing-Setup.msi"
+          if (-not (Test-Path $msi)) {
+            throw "Expected MSI not found: $msi"
+          }
+          Get-Item $msi | Format-List Name, Length, FullName
+
       - name: Publish GitHub Release
         uses: softprops/action-gh-release@v2
         with:
@@ -56,7 +65,7 @@ jobs:
 
             ## Install
 
-            1. Download **Contract manufacturing Setup.msi** below.
+            1. Download **Contract-manufacturing-Setup.msi** below.
             2. Double-click the installer and complete the wizard.
             3. Start **Contract manufacturing** from the Start menu or desktop shortcut.
 
@@ -66,5 +75,5 @@ jobs:
 
             - Windows 10 or 11 (64-bit)
             - Administrator rights to install (not required to run after install)
-          files: publish/installer/Contract manufacturing Setup.msi
+          files: publish/installer/Contract-manufacturing-Setup.msi
           fail_on_unmatched_files: true

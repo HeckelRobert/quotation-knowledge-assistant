@@ -39,16 +39,16 @@ You do **not** need to install .NET or any other development tools.
 
 ## Download
 
-1. Open the download page: [Latest release](https://github.com/HeckelRobert/quotation-knowledge-assistant/releases/latest)
-2. Under **Assets**, click **Contract manufacturing Setup.msi** to download the installer.
+1. Open the download page: [Latest release](https://github.com/HeckelRobert/contract-manufacturing-assistant/releases/latest)
+2. Under **Assets**, click **Contract-manufacturing-Setup.msi** to download the installer.
 
-Direct link: [Download latest installer (MSI)](https://github.com/HeckelRobert/quotation-knowledge-assistant/releases/latest/download/Contract%20manufacturing%20Setup.msi)
+Direct link: [Download latest installer (MSI)](https://github.com/HeckelRobert/contract-manufacturing-assistant/releases/latest/download/Contract-manufacturing-Setup.msi)
 
 ---
 
 ## Install
 
-1. Open your **Downloads** folder and double-click **Contract manufacturing Setup.msi**.
+1. Open your **Downloads** folder and double-click **Contract-manufacturing-Setup.msi**.
 2. If Windows shows a security warning ("Windows protected your PC"):
    - Click **More info**
    - Click **Run anyway**  

@@ -8,10 +8,10 @@
     <Company>Heckel Informatik GmbH</Company>
     <Product>Contract manufacturing</Product>
     <Copyright>Copyright © 2026 Robert Heckel</Copyright>
-    <Version>0.1.0</Version>
-    <FileVersion>0.1.0.0</FileVersion>
-    <AssemblyVersion>0.1.0.0</AssemblyVersion>
-    <InformationalVersion>0.1.0</InformationalVersion>
+    <Version>0.1.2</Version>
+    <FileVersion>0.1.2.0</FileVersion>
+    <AssemblyVersion>0.1.2.0</AssemblyVersion>
+    <InformationalVersion>0.1.2</InformationalVersion>
     <NeutralLanguage>en</NeutralLanguage>
     <NeutralResourcesLanguage>en</NeutralResourcesLanguage>
     <MicrosoftExtensionsVersion>10.0.9</MicrosoftExtensionsVersion>
