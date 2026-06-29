@@ -14,6 +14,82 @@ function Test-IsBackgroundPixel {
     return $Color.R -ge $Threshold -and $Color.G -ge $Threshold -and $Color.B -ge $Threshold
 }
 
+function Test-IsBluePixel {
+    param([System.Drawing.Color]$Color)
+    return $Color.B -gt 120 -and $Color.B -gt $Color.R -and $Color.B -gt $Color.G -and $Color.R -lt 180
+}
+
+function Get-IconPanelBounds {
+    param([System.Drawing.Bitmap]$Bitmap, [int]$Threshold)
+
+    $width = $Bitmap.Width
+    $height = $Bitmap.Height
+    $contentTop = -1
+    $contentBottom = -1
+
+    for ($y = 0; $y -lt $height; $y++) {
+        $hasWhite = $false
+        for ($x = 0; $x -lt $width; $x++) {
+            if (Test-IsBackgroundPixel -Color $Bitmap.GetPixel($x, $y) -Threshold $Threshold) {
+                $hasWhite = $true
+                break
+            }
+        }
+        if ($hasWhite) {
+            if ($contentTop -lt 0) { $contentTop = $y }
+            $contentBottom = $y
+        }
+    }
+
+    if ($contentTop -lt 0) {
+        return $null
+    }
+
+    $panelLeft = $width
+    $panelRight = -1
+    for ($y = $contentTop; $y -le $contentBottom; $y++) {
+        for ($x = 0; $x -lt $width; $x++) {
+            if (Test-IsBluePixel -Color $Bitmap.GetPixel($x, $y)) {
+                if ($x -lt $panelLeft) { $panelLeft = $x }
+                if ($x -gt $panelRight) { $panelRight = $x }
+            }
+        }
+    }
+
+    if ($panelRight -lt $panelLeft) {
+        return $null
+    }
+
+    return New-Object System.Drawing.Rectangle(
+        $panelLeft,
+        $contentTop,
+        ($panelRight - $panelLeft + 1),
+        ($contentBottom - $contentTop + 1)
+    )
+}
+
+function Remove-LetterboxBars {
+    param([System.Drawing.Bitmap]$Source)
+
+    $panelBounds = Get-IconPanelBounds -Bitmap $Source -Threshold $BackgroundThreshold
+    if ($null -eq $panelBounds) {
+        return $Source
+    }
+
+    $fullBleed = $panelBounds.Width -eq $Source.Width -and $panelBounds.Height -eq $Source.Height
+    if ($fullBleed) {
+        return $Source
+    }
+
+    $output = New-Object System.Drawing.Bitmap($Source.Width, $Source.Height)
+    $graphics = [System.Drawing.Graphics]::FromImage($output)
+    New-GraphicsSettings -Graphics $graphics
+    $destRect = New-Object System.Drawing.Rectangle(0, 0, $Source.Width, $Source.Height)
+    $graphics.DrawImage($Source, $destRect, $panelBounds, [System.Drawing.GraphicsUnit]::Pixel)
+    $graphics.Dispose()
+    return $output
+}
+
 function Get-ContentBounds {
     param(
         [System.Drawing.Bitmap]$Bitmap,
@@ -147,10 +223,15 @@ function Get-PngBytes {
 }
 
 $source = [System.Drawing.Bitmap]::FromFile($PngPath)
+$letterboxRemoved = $null
 try {
-    $master = New-NormalizedSquareBitmap -Source $source -OutputSize $MasterSize
+    $letterboxRemoved = Remove-LetterboxBars -Source $source
+    $master = New-NormalizedSquareBitmap -Source $letterboxRemoved -OutputSize $MasterSize
 }
 finally {
+    if ($null -ne $letterboxRemoved -and $letterboxRemoved -ne $source) {
+        $letterboxRemoved.Dispose()
+    }
     $source.Dispose()
 }
 
